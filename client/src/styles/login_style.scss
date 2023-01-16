@@ -1,0 +1,62 @@
+$USVBlue: #272F54;
+$USVComplementary: #d8d0ab;
+
+.app{
+    display: flex;
+    justify-content: center;
+    .container{
+        width: 1024px;
+            .auth {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                background-color: $USVBlue;
+        
+                h1 {
+                font-size: 20px;
+                color: $USVComplementary;
+                margin-bottom: 20px;
+                }
+        
+                form {
+                display: flex;
+                flex-direction: column;
+                padding: 50px;
+                background-color: white;
+                width: 200px;
+                gap: 20px;
+        
+                input {
+                    padding: 10px;
+                    border: none;
+                    border-bottom: 1px solid gray;
+                }
+        
+                button {
+                    padding: 10px;
+                    border: none;
+                    background-color: $USVComplementary;
+                    cursor: pointer;
+                    color: rgb(0, 0, 0);
+                }
+        
+                p {
+                    font-size: 12px;
+                    color: red;
+                    text-align: center;
+                }
+        
+                span {
+                    font-size: 12px;
+                    text-align: center;
+                }
+
+                .rad {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}

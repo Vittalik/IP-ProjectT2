@@ -19,6 +19,9 @@ import { useContext } from "react";
 
 import "./styles/login_style.scss"
 import Admin from "./pages/Admin";
+import AdminNavbar from "./components/AdminNavbar";
+import AdminUsers from "./pages/AdminUsers";
+import Calendar from "./pages/Calendar";
 
 function App() {
 
@@ -26,6 +29,16 @@ const Layout = () => {
   return (
     <>
     <Navbar/>
+    <Outlet/>
+    <Footer/>
+    </>
+  )
+}
+
+const LayoutAdmin = () => {
+  return (
+    <>
+    <AdminNavbar/>
     <Outlet/>
     <Footer/>
     </>
@@ -60,8 +73,8 @@ const router = createBrowserRouter([
       element: <Write/>
     },
     {
-      path: "/admin",
-      element: <ProtectedRoute><Admin/></ProtectedRoute>
+      path: "/calendar",
+      element: <Calendar/>
     },
   ]
 },
@@ -73,9 +86,22 @@ const router = createBrowserRouter([
   path: "/register",
   element: <Register/>,
 },
+{
+  path: "/admin",
+  element: <LayoutAdmin/>,
+  children:[
+    {
+      path: "/admin",
+      element: <ProtectedRoute><Admin/></ProtectedRoute>
+    },
+    {
+      path: "/admin/users",
+      element: <ProtectedRoute><AdminUsers/></ProtectedRoute>
+    },
+  ]
+}
 ]);
   
-
 
   return (
     <div className="app">

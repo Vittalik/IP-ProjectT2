@@ -1,43 +1,31 @@
 import React from 'react'
 import Logo from "../images/csm logo.png"
-import "../styles/navbar_footer_style.scss"
+import "../styles/admin_navbar.scss"
 import {Link} from "react-router-dom"
 import { useContext } from 'react'
 import { AuthContext } from '../context/authContext'
 
 
-const Navbar = () => {
+const AdminNavbar = () => {
 
   const { currentUser, logout } = useContext(AuthContext)
 
 
   return (
-    <div className='navbar'>
+    <div className='admin_navbar'>
         <div className='container'>
             <div className='logo'>
               <Link to="/"><img src={Logo}></img></Link>
             </div>
             <div className='links'>
                 <Link className='link' to="/"> 
-                <h6>ACASA</h6> 
+                <h6>PERSONAL</h6> 
+                </Link>
+                <Link className='link' to="/admin/users"> 
+                <h6>USERS AND POSTS</h6> 
                 </Link>
                 <Link className='link' to="/"> 
-                <h6>MULTIMEDIA</h6> 
-                </Link>
-                <Link className='link' to="/"> 
-                <h6>ANUNTURI</h6> 
-                </Link>
-                <Link className='link' to="/calendar"> 
-                <h6>CALENDAR</h6> 
-                </Link>
-                <Link className='link' to="/"> 
-                <h6>ECHIPE</h6> 
-                </Link>
-                <Link className='link' to="/"> 
-                <h6>JUNIORI</h6> 
-                </Link>
-                <Link className='link' to="/"> 
-                <h6>CONTACT</h6> 
+                <h6>MATCHES</h6>
                 </Link>
 
                 <span>{currentUser?.username}</span>
@@ -50,4 +38,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default AdminNavbar

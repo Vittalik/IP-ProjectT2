@@ -3,7 +3,14 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from "axios"
 
+
+import logo from "../images/croppedLogo.png"
+
 const Register = () => {
+
+  const [err, setError] = useState(null);
+  const navigate = useNavigate()
+  
   const [inputs, setInputs] = useState({
     username:"",
     email:"",
@@ -12,32 +19,32 @@ const Register = () => {
     ccontent:"",
   })
 
-  const [err, setError] = useState(null);
-
-  const navigate = useNavigate()
 
   const handleChange = e =>{
     setInputs(prev=>({...prev, [e.target.name]: e.target.value}))
   };
 
-  //console.log(inputs)
 
   const handleSubmit = async e =>{
     e.preventDefault()
     try{
       await axios.post("/auth/register", inputs)
       navigate("/login");
-      //console.log(res)
     }catch(err){
       setError(err.response.data);
-      //console.log(err)
     }
   };
 
+
+
   return (
     <div className='auth'>
-      <h1>REGISTER</h1>
+      <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
+      <h1>Register</h1>
       <form>
+      <div className='logo'>
+        <img src={logo} alt='Logo CSM'  height="60" width="50"></img>
+      </div>
         <input required type="text" placeholder='username' name='username' onChange={handleChange}/>
         <input required type="email" placeholder='email' name='email' onChange={handleChange}/>
         <input required type="password" placeholder='password' name='password' onChange={handleChange}/>

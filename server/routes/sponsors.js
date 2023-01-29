@@ -1,12 +1,11 @@
 import express from "express"
-import { getUsers, deleteUser } from "../controllers/user.js";
+import { getSponsors } from "../controllers/sponsor.js";
 
 //import { addPost } from "../controllers/post.js"
 
 const router = express.Router()
 
-router.get("/", getUsers);
-router.delete("/:id", deleteUser)
+router.get("/", getSponsors);
 //router.get("/admin", verifyAdmin)
 
 //router.get("/test", addPost)

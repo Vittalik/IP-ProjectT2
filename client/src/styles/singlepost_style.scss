@@ -3,7 +3,8 @@
         .singlepost{
             display: flex;
             gap: 50px;
-
+            padding: 15px;
+            
             .content{
                 flex:5;
                 display: flex;
@@ -31,6 +32,7 @@
                 }
 
                 span{
+                    font-family: 'Poppins';
                     font-weight: bold;
                 }
             }
@@ -38,7 +40,7 @@
             .edit{
                 display: flex;
                 gap: 5px;
-
+                font-family: 'Poppins';
                 img{
                     width: 20px;
                     height: 20px;
@@ -47,11 +49,13 @@
             }
 
             h1{
+                font-family: 'Poppins';
                 font-size: 42px;
                 color: #333;
             }
 
             p{
+                font-family: 'Poppins';
                 text-align: justify;
                 line-height: 25px;
             }
@@ -63,8 +67,9 @@
                 gap: 25px;
 
                 h1 {
+                font-family: 'Poppins';
                 font-size: 20px;
-                color: #555;
+                color: black;
                 }
 
                 .post{
@@ -79,22 +84,29 @@
                     }
 
                     h2 {
-                        color: #555;
+                        font-family: 'Poppins';
+                        color: black;
                     }
 
                     button {
                         width: max-content;
                         padding: 7.5px 15px;
                         border: none;
+                        border-radius: 8px;
                         cursor: pointer;
-                        color: teal;
-                        background-color: white;
-                        border: 1px solid teal;
+                        color: white;
+                        background-color: #022268;
+                        border: 1px solid #022268;
             
                         &:hover {
                           border: 1px solid white;
-                          background-color: lightGreen;
-                          color: black;
+                          background-color: #1340A2;
+                          color: white;
+                        }
+                        &:active {
+                            color:#022268;
+                            border: 1px solid #022268;
+                            background-color: white;
                         }
                     }
                 }

@@ -1,102 +1,150 @@
 .app{
-    .container{
+  .container{
 
-    .add{
-        margin-top: 20px;
-        display: flex;
-        gap: 20px;
+  .add{
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+      .content{
+          flex: 5;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          padding: 10px;
+          input{
+          padding: 10px;
+          border: 1px solid lightgray;
+          border-radius: 8px;
 
-        .content{
-            flex: 5;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+          &:hover {
+            background-color: #cbd6ee;
+            transition: 0.5s;
+          }
 
-            input{
-            padding: 10px;
-            border: 1px solid lightgray;
-            }
-
-            .editorContainer{
-                height: 300px;
-                overflow: scroll;
-                border: 1px solid lightgray;
-
-                .editor{
-                    height: 100%;
-                    border: none;
-                }
-            }
+          &:focus{
+            background-color: #cbd6ee;
+            transition: 0.5s;
+          }
         }
-
-        .menu{
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-
-            .item{
-                border: 1px solid lightgray;
-                padding: 10px;
-                flex: auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                font-size: 12px;
-                color: #555;
-            }
-
-            .item2{
-                border: 1px solid lightgray;
-                padding: 10px;
-                flex: auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                font-size: 12px;
-                color: #555;
-            }
-
-            h1{
-                font-size: 20px;
+          .editorContainer{
+              height: 300px;
+              overflow: scroll;
+              border: 1px solid lightgray;
+              border-radius: 8px;
+              .editor{
+                  height: 100%;
+                  border: none;
               }
-    
-              .file{
-                text-decoration: underline;
+              &:hover{
+                background-color: #cbd6ee;
+                transition: 0.5s;
+              }
+          }
+      }
+
+      .menu{
+          flex: 2;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          padding: 10px;
+
+          .item{
+              border: 1px solid lightgray;
+              border-radius: 8px;
+              padding: 10px;
+              flex: auto;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              font-size: 12px;
+              color: #555;
+              &:hover{
+                background-color: #cbd6ee;
+                transition: 0.5s;
+              }
+          }
+
+          .item2{
+              border: 1px solid lightgray;
+              border-radius: 8px;
+              padding: 10px;
+              flex: auto;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              font-size: 12px;
+              color: #555;
+              &:hover{
+                background-color: #cbd6ee;
+                transition: 0.5s;
+              }
+          }
+
+          h1{
+              font-family: 'Poppins';
+              font-size: 20px;
+              color:#1340A2
+            }
+  
+            .file{
+              text-decoration: underline;
+              cursor: pointer;
+            }
+
+            .buttons{
+              display: flex;
+              justify-content: space-between;
+  
+              :first-child{
                 cursor: pointer;
-              }
+                color: white;
+                background-color: #022268 ;
+                border: 1px solid #022268;
+                padding: 3px 5px;
+                border-radius: 8px;
 
-              .buttons{
-                display: flex;
-                justify-content: space-between;
-    
-                :first-child{
-                  cursor: pointer;
-                  color: teal;
+                &:hover{
+                  background-color: #1340A2;
+                }
+
+                &:active{
                   background-color: white;
-                  border: 1px solid teal;
-                  padding: 3px 5px;
-                }
-                :last-child{
-                  cursor: pointer;
-                  color: white;
-                  background-color: teal;
-                  border: 1px solid teal;
-                  padding: 3px 5px;
+                  color:#022268;
                 }
               }
+              :last-child{
+                cursor: pointer;
+                color: white;
+                background-color: #022268;
+                border: 1px solid #022268;
+                padding: 3px 5px;
+                border-radius: 8px;
 
-              .cat{
-                display: flex;
-                align-items: center;
-                gap: 2px;
-                color: teal;
+                &:hover{
+                  background-color: #1340A2;
+                }
+
+                &:active{
+                  background-color: white;
+                  color:#022268;
+                }
               }
-        }
+               
+              
+            }
 
-    }
+            .cat{
+              display: flex;
+              align-items: center;
+              gap: 2px;
+              color: #022268;
+            }
+      }
+
+  }
 
 
 
-    }
+  }
 }

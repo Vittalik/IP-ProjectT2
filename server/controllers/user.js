@@ -1,19 +1,21 @@
 import {db} from "../db.js";
 import jwt from "jsonwebtoken";
 
-export const requireAuth = (req, res) => {
-    const token = req.cookies.access_token;
-    if (!token) return res.status(401).json("You don't have the rights to access this page!");
+export const getUsers = (req,res)=>{
+    const q = "SELECT * FROM users WHERE role != 'admin'";
 
-    jwt.verify(token, "jwtkey", (err, userInfo) => {
-        if (err) return res.status(403).json("Token is not valid!");
+        db.query(q, (err,data)=>{
+            if (err) return res.status(500).send(err);
+            return res.status(200).json(data);
+        })
+};
 
-    const q = "SELECT * users WHERE `role` = 'content_creator' ";
+export const deleteUser = (req,res)=>{
+    const userId = req.params.id;
+    const q = "DELETE FROM users WHERE `id` = ?";
 
-    db.query(q, [userInfo.role], (err, data) => {
-        if (err) return res.status(403).json("You don't have the rights to access this page!");
-  
-        return res.json("Access granted!");
-      });
+    db.query(q, [userId], (err, data) => {
+      if (err) return res.status(403).json("USER_ERROR");
+      return res.json("User has been deleted!");
     });
-}
+};

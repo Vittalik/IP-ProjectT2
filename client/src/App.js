@@ -1,8 +1,6 @@
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Routes,
   Outlet,
   Navigate,
   } from "react-router-dom";
@@ -22,6 +20,7 @@ import Admin from "./pages/Admin";
 import AdminNavbar from "./components/AdminNavbar";
 import AdminUsers from "./pages/AdminUsers";
 import Calendar from "./pages/Calendar";
+import AddNewUser from "./pages/AddNewUser";
 
 function App() {
 
@@ -48,12 +47,18 @@ const LayoutAdmin = () => {
 const {currentUser} = useContext(AuthContext);
 
 const ProtectedRoute = ({children}) => {
-  if(currentUser.role != 'user'){
+  if(!currentUser || currentUser.role !== 'admin'){
     return <Navigate to="/"/>
   }
   return children;
 }
 
+const ProtectedRouteCC = ({children}) => {
+  if(!currentUser || currentUser.role !== 'content_creator' && currentUser.role !== 'admin'){
+    return <Navigate to="/"/>
+  }
+  return children;
+}
 
 const router = createBrowserRouter([
 {
@@ -70,7 +75,7 @@ const router = createBrowserRouter([
     },
     {
       path: "/write",
-      element: <Write/>
+      element: <ProtectedRouteCC><Write/></ProtectedRouteCC>
     },
     {
       path: "/calendar",
@@ -85,6 +90,14 @@ const router = createBrowserRouter([
 {
   path: "/register",
   element: <Register/>,
+},
+{
+  path: "/users/new",
+  element: <ProtectedRoute><AddNewUser/></ProtectedRoute>
+},
+{
+  path: "/users/view",
+  element: <ProtectedRoute></ProtectedRoute>
 },
 {
   path: "/admin",

@@ -18,9 +18,9 @@ export const register = (req,res)=>{
             return res.status(409).json("Password is not long enough!");
         } else if(req.body.password.search(/[a-z]/) < 0 || req.body.password.search(/[A-Z]/) < 0){
             if (err) return res.json(err);
-            //return res.status(409).json("Password must contain an upper and lowercase letter!");
-            return res.status(409).json("" + req.body.password + " " + req.body.repeatpassword);
-        } else if (req.body.ccontent != "on") {
+            return res.status(409).json("Password must contain an upper and lowercase letter!");
+            //return res.status(409).json("" + req.body.password + " " + req.body.repeatpassword);
+        } else if(req.body.ccontent != "on") {
 
         // Encriptarea parolei
         const salt = bcrypt.genSaltSync(10);
@@ -37,7 +37,7 @@ export const register = (req,res)=>{
 
         db.query(q,[values],(err,data)=>{
             if(err) return res.json(err);
-            return res.status(200).json("User has been created.");
+            return res.status(200).json("" + req.body.imago + " ");
         });
     } else if (req.body.ccontent == "on") {
         // Encriptarea parolei

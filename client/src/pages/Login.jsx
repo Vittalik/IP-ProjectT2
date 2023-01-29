@@ -5,6 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../context/authContext'
 
+import logo from "../images/croppedLogo.png"
+
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -33,10 +35,16 @@ const Login = () => {
     }
   };
 
+
+
   return (
     <div className='auth'>
-      <h1>LOGIN</h1>
+      <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
+      <h1>Login</h1>
       <form>
+      <div className='logo'>
+          <img src={logo} alt='Logo CSM' height="60" width="50"></img>
+        </div>
         <input required type="text" placeholder='username' name="username" onChange={handleChange}/>
         <input required type="password" placeholder='password' name="password" onChange={handleChange}/>
         <button onClick={handleSubmit}>Login</button>

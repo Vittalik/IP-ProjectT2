@@ -1,14 +1,27 @@
 import React from 'react'
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import UserDataTable from '../components/UserDataTable'
+import PostDataTable from '../components/PostDataTable'
+import SponsorDataTable from '../components/SponsorDataTable'
 
 
 const Admin = () => {
 
-  const [user, setUser] = useState([])
-
   return (
-    <div>Admin</div>
+    <div>Welcome to the Admin Dashboard!
+    <br></br>
+    <div className='listContainer'>
+        <div className="listTitle"> Site Users </div>
+        <UserDataTable/>
+    </div>
+    <div className='listContainer'>
+        <div className="listTitle"> Posts </div>
+        <PostDataTable/>
+    </div>
+    <div className='listContainer'>
+        <div className="listTitle"> Sponsors </div>
+        <SponsorDataTable/>
+    </div>
+    </div>
   )
 }
 

@@ -1,0 +1,60 @@
+.app{
+    display: flex;
+    justify-content: center;
+  
+  .container {
+    width: 1024px;
+  
+
+        .lol{
+            display: flex;
+            align-items: center;
+            //justify-content: space-between;
+            flex-direction: row;
+            margin-left: 10px;
+            margin-top: 10px;
+            .iconAdd{
+                margin-left: 10px;
+            }
+
+        }
+
+
+        .lol2{
+            display: flex;
+            align-items: center;
+            //justify-content: space-between;
+            flex-direction: row;
+            margin-left: 10px;
+            margin-top: 50px;
+
+            .iconAdd{
+                margin-left: 10px;
+            }
+
+        }
+
+
+        .edition {
+          margin-top: 10px;
+          margin-left: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: row;
+          display: inline-block;
+          gap: 10px;
+        }
+
+        .edition2 {
+            margin-top: 10px;
+            margin-left: 7.5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+            display: inline-block;
+            gap: 10px;
+          }
+    }
+}

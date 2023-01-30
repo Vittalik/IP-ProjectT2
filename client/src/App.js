@@ -19,8 +19,14 @@ import "./styles/login_style.scss"
 import Admin from "./pages/Admin";
 import AdminNavbar from "./components/AdminNavbar";
 import AdminUsers from "./pages/AdminUsers";
-import Calendar from "./pages/Calendar";
+import Calendar from "./pages/Calendar/Calendar";
 import AddNewUser from "./pages/AddNewUser";
+import Sponsor from "./pages/Sponsor";
+import AddSponsor from "./pages/AddSponsor"
+import Contact from "./pages/Contact"
+import Gallery from "./pages/Gallery"
+import ProfileThreeColGrid from "./pages/ProfileThreeColGrid"
+
 
 function App() {
 
@@ -80,6 +86,26 @@ const router = createBrowserRouter([
     {
       path: "/calendar",
       element: <Calendar/>
+    },
+    {
+      path: "/sponsors",
+      element: <Sponsor/>
+    },
+    {
+      path: "/sponsors/new",
+      element: <AddSponsor/>
+    },
+    {
+      path: "/contacts",
+      element: <Contact/>
+    },
+    {
+      path: "/gallery",
+      element: <Gallery/>
+    },
+    {
+      path: "/personal",
+      element: <ProfileThreeColGrid/>
     },
   ]
 },

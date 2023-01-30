@@ -22,7 +22,7 @@ const Navbar = () => {
                 <Link className='link' to="/"> 
                 <h6>ACASA</h6> 
                 </Link>
-                <Link className='link' to="/"> 
+                <Link className='link' to="/gallery"> 
                 <h6>GALERIA</h6> 
                 </Link>
                 <Link className='link' to="/"> 
@@ -31,16 +31,16 @@ const Navbar = () => {
                 <Link className='link' to="/calendar"> 
                 <h6>CALENDAR</h6> 
                 </Link>
-                <Link className='link' to="/"> 
+                <Link className='link' to="/personal"> 
                 <h6>PERSONAL</h6> 
                 </Link>
                 <Link className='link' to="/"> 
                 <h6>JUNIORI</h6> 
                 </Link>
-                <Link className='link' to="/"> 
+                <Link className='link' to="/sponsors"> 
                 <h6>SPONSORI</h6> 
                 </Link>
-                <Link className='link' to="/"> 
+                <Link className='link' to="/contacts"> 
                 <h6>CONTACT</h6> 
                 </Link>
                 {currentUser && currentUser.role === 'admin' && (<Link className='link' to="/admin"> 
@@ -49,7 +49,7 @@ const Navbar = () => {
 
                 <span className='currentUser'>{currentUser?.username}</span>
                 {currentUser ? <span onClick={logout}>Logout</span> : <Link className='link' to="/login">Login</Link>}
-                {currentUser && currentUser.role == 'content_creator' ? <span className='write'><Link className='link' to="/write">Write</Link></span> : null}
+                {currentUser && currentUser.role === 'content_creator' ? <span className='write'><Link className='link' to="/write">Write</Link></span> : null}
 
             </div>
         </div>

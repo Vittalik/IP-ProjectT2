@@ -8,6 +8,7 @@ import startOfWeek from "date-fns/startOfWeek";
 import { Calendar, dateFnsLocalizer, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
+import TimeRange from 'react-time-range';
 import "react-datepicker/dist/react-datepicker.css";
 
 import moment from "moment"
@@ -15,15 +16,19 @@ import 'moment/locale/ro';
 import { ro } from 'date-fns/locale'
 
 import { Overlay, Tooltip, Button, Row, Col } from "react-bootstrap";
+import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./Calendar.css";
 
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import styles from "./Popup.scss";
-
+import { TextField } from "react-text-field";
 
 import { Link, useLocation } from 'react-router-dom';
+
+
 const locales = {
     'ro': ro,
 };
@@ -52,7 +57,15 @@ const arrowStyle = { color: '#000' }; // style for an svg element
 
 
 const TooltipContent = ({onClose, event}) => {
+  var echipa1 = document.getElementById("select_echipa1");
+  var echipa2 = document.getElementById("select_echipa2");
+  var team1_logo = "/logos/" + echipa1.options[echipa1.selectedIndex].value + ".jpg";
+  var team2_logo = "/logos/" + echipa2.options[echipa2.selectedIndex].value + ".jpg";
+  var scor_e1 = document.getElementById("scor_echipa1").value;
+  var scor_e2 = document.getElementById("scor_echipa2").value;
+//"https://assets.codepen.io/285131/chelsea.svg"
   return (
+
   <div class="container_match">
 	<div class="match">
 		<div class="match-header">
@@ -63,17 +76,17 @@ const TooltipContent = ({onClose, event}) => {
 				<div class="team team--home">
 					<div class="team-logo">
 						
-						<img src="https://assets.codepen.io/285131/chelsea.svg" />
+						<img src= {team1_logo}/>
 					</div>
-					<h2 class="team-name">Echipa 1</h2>
+					<h2 class="team-name">{echipa1.options[echipa1.selectedIndex].text}</h2>
 				</div>
 			</div>
 			<div class="column">
 				<div class="match-details">
 					<div class="match-score">
-						<span class="match-score-number match-score-number--leading">3</span>
+						<span class="match-score-number match-score-number--leading">{scor_e1}</span>
 						<span class="match-score-divider">:</span>
-						<span class="match-score-number">1</span>
+						<span class="match-score-number">{scor_e2}</span>
 					</div>
 				</div>
 			</div>
@@ -81,9 +94,9 @@ const TooltipContent = ({onClose, event}) => {
 				<div class="team team--away">
 					<div class="team-logo">
 				
-						<img src="https://resources.premierleague.com/premierleague/badges/t1.svg" />
+						<img src= {team2_logo} />
 					</div>
-					<h2 class="team-name">Echipa 2</h2>
+					<h2 class="team-name">{echipa2.options[echipa2.selectedIndex].text}</h2>
 				</div>
 			</div>
 		</div>
@@ -108,7 +121,7 @@ function Event(event) {
   };
   return (
     <div ref={ref}>
-      <span onMouseOver={openTooltip}>{event.title}</span>
+      <span onMouseOver={openTooltip}>{[event.title, event.numeEchipa1]}</span>
       <Overlay
         rootClose
         target={getTarget}
@@ -132,30 +145,24 @@ const Calendarr = () => {
 
   //constants and func declarations
 
-  const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
+  const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" ,numeEchipa1:"", numeEchipa2:""});
     const [allEvents, setAllEvents] = useState(events);
 
     function handleAddEvent() {
-        
+
         for (let i=0; i<allEvents.length; i++){
 
             const d1 = new Date (allEvents[i].start);
             const d2 = new Date(newEvent.start);
             const d3 = new Date(allEvents[i].end);
             const d4 = new Date(newEvent.end);
-      /*
-          console.log(d1 <= d2);
-          console.log(d2 <= d3);
-          console.log(d1 <= d4);
-          console.log(d4 <= d3);
-            */
 
              if (
               ( (d1  <= d2) && (d2 <= d3) ) || ( (d1  <= d4) &&
                 (d4 <= d3) )
               )
             {   
-                alert("CLASH"); 
+                alert("Conflict in stabilirea datei"); 
                 break;
              }
              if (newEvent.title === "")
@@ -186,22 +193,41 @@ const handleSelected = (event) => {
 
     
 
-    //<div>Calendar</div>
-
     <div className="Calendarrr">
-    <h1>Activitati C.S.M.</h1>
-    <h2>Adauga un nou eveniment</h2>
+      {/* <h1 id='activitati'>Activități C.S.M.</h1> */}
     <div>
-        <input type="text" placeholder="Numele evenimentului" style={{ width: "20%", marginRight: "10px" }} value={newEvent.title} onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })} />
+        <div className='match-input'>
+        <h4 id='adauga-eveniment'>Creează un eveniment nou:</h4>
+        <input className='input-calendar' type="text" placeholder="Numele meciului" style={{ width: "20%", marginRight: "10px" }} value={newEvent.title} onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })} />
 
-        <DatePicker timeFormat="HH:mm" showTimeSelect timeIntervals={5} dateFormat="dd-MM HH:mm" placeholderText="Data inceput" style={{ marginRight: "10px" }} selected={newEvent.start} onChange={(start) => setNewEvent({ ...newEvent, start })} />
-        <DatePicker timeFormat="HH:mm" showTimeSelect timeIntervals={5} dateFormat="dd-MM HH:mm" placeholderText="Data final" selected={newEvent.end} onChange={(end) => setNewEvent({ ...newEvent, end })} />
+        
+        <div className = 'input-calendar'>Echipa 1:
+        <select id="select_echipa1">
+        <option value="Suceava">CSM Suceava</option>
+        <option value="Lugoj">CSM Lugoj</option>
+        <option value="Bucuresti">CSM Bucuresti</option>
+        </select><br></br>
+        <input id="scor_echipa1" type="text" placeholder="Scor" style={{ width: "20%", marginRight: "10px" }} />
+        </div>
+
+        <div className = 'input-calendar'>Echipa 2:
+        <select id="select_echipa2">
+        <option value="Suceava">CSM Suceava</option>
+        <option value="Lugoj">CSM Lugoj</option>
+        <option value="Bucuresti">CSM Bucuresti</option>
+        </select><br></br>
+        <input id="scor_echipa2" type="text" placeholder="Scor" style={{ width: "20%", marginRight: "10px" }} />
+        </div>
 
 
-        <button stlye={{ marginTop: "10px" }} onClick={handleAddEvent}>
-            Adauga
+        <div><DatePicker className='input-calendar' timeFormat="HH:mm" showTimeSelect timeIntervals={5} dateFormat="dd-MM HH:mm" placeholderText="Data inceput" style={{ marginRight: "10px" }} selected={newEvent.start} onChange={(start) => setNewEvent({ ...newEvent, start })} /></div>
+        <DatePicker className='input-calendar' timeFormat="HH:mm" showTimeSelect timeIntervals={5} dateFormat="dd-MM HH:mm" placeholderText="Data final" selected={newEvent.end} onChange={(end) => setNewEvent({ ...newEvent, end })} />
+        <button className='add-button'stlye={{ marginTop: "10px" }} onClick={handleAddEvent}>
+            Adaugă
         </button>
 
+      </div>
+        <p className='calendar-message'>Calendar meciuri:</p>
         <Calendar
         tooltipAccessor={null}
         components={{ event: Event }}
@@ -230,4 +256,5 @@ const handleSelected = (event) => {
   )
 }
 
+//document.getElementById("insert_team1").addEventListener("input", () => console.log(document.getElementById("insert_team1").value));
 export default Calendarr

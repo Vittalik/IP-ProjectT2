@@ -2,13 +2,14 @@ import React from 'react'
 import UserDataTable from '../components/UserDataTable'
 import PostDataTable from '../components/PostDataTable'
 import SponsorDataTable from '../components/SponsorDataTable'
+import { fontFamily } from '@mui/system'
 
 
 const Admin = () => {
 
   return (
-    <div>Welcome to the Admin Dashboard!
-    <br></br>
+    <div>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
     <div className='listContainer'>
         <div className="listTitle"> Site Users </div>
         <UserDataTable/>

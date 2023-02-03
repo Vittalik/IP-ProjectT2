@@ -1,33 +1,47 @@
 .datatable {
+    background-color: #dfe6f4;
     height: 600px;
     padding: 20px;
-    
+    border-radius: 8px;
     .datatableTitle{
+      font-family: 'Poppins';
       width: 100%;
       font-size: 24px;
-      color: gray;
+      color: #022268;
       margin-bottom: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
   
       .link{
+        font-family: 'Poppins';
         text-decoration: none;
-        color: green;
         font-size: 16px;
         font-weight: 400;
-        border: 1px solid green;
-        padding: 5px;
-        border-radius: 5px;
+        background-color: #ffffff ;
+        border: 1px solid #022268;
+        padding: 3px 5px;
+        border-radius: 8px;
         cursor: pointer;
+
+        &:hover{
+          background-color: #c0cae0;
+        }
+
+        &:active{
+          background-color: #7a90c0;
+        }
+
       }
     }
   
     .cellWithImg {
+      font-family: 'Poppins';
       display: flex;
       align-items: center;
   
       .cellImg {
+        font-family: 'Poppins';
         width: 32px;
         height: 32px;
         border-radius: 50%;
@@ -37,6 +51,7 @@
     }
   
     .cellWithStatus {
+      font-family: 'Poppins';
       padding: 5px;
       border-radius: 5px;
   
@@ -55,24 +70,41 @@
     }
   
     .cellAction {
+      font-family: 'Poppins';
       display: flex;
       align-items: center;
       gap: 15px;
-  
+
       .viewButton {
+        font-family: 'Poppins';
         padding: 2px 5px;
         border-radius: 5px;
         color: darkblue;
         border: 1px dotted rgba(0, 0, 139, 0.596);
         cursor: pointer;
+
+        &:hover{
+          background-color: rgb(178, 178, 223);
+        }
+        &:active{
+          background-color: rgb(137, 137, 186);
+        }
       }
       
       .deleteButton {
+        font-family: 'Poppins';
         padding: 2px 5px;
         border-radius: 5px;
         color: crimson;
         border: 1px dotted rgba(220, 20, 60, 0.6);
         cursor: pointer;
+
+        &:hover{
+          background-color: rgb(232, 144, 162);
+        }
+        &:active{
+          background-color: rgb(215, 121, 140);
+        }
       }
     }
   }

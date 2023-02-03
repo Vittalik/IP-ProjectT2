@@ -10,12 +10,15 @@
         color: inherit;
     }
     .navbar{
+        position: sticky;//+ 
+        top: 0;//+
+        z-index: 1;//+
         .container{
             background-color: #022268;//#A8BDEC;
             padding: 5px 10px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            width: 1004px; //!!!!!
             
             .logo{
                 img{
@@ -32,16 +35,32 @@
                     font-weight: 100;
                     font-size: 16px;
                 }
+                .acasa, .stiri, .galeria, .sponsori, .juniori, .contact, .personal, .calendar, .dashboard { //+
+                    &:hover{
+                        background-color:#0e317e;
+                        padding-top: 6px;
+                        padding-bottom: 6px;
+                        transition: 0.3s;
+                    }
+                    &:active{
+                        color:#7897DA;
+                    }
+                }
+
+                }
     
                 .currentUser{
                     background-color: #1340A2;
                     border-radius: 8px;
                     padding: 4px;
                 }
-                span {
-                    cursor: pointer;
-                }
     
+                .login {
+                    &:hover{
+                        color:#7897DA;
+                        cursor: pointer;
+                    }
+                }
                 .write {
                     background-color: #1340A2;
                     width: 50px;
@@ -58,23 +77,81 @@
                       background-color: #7897DA;
                       border: 1px solid white;
                     }
+                &:active {
+                    background-color: white;
+                    color:#022268;
+                    border: 1px solid #022268;
+                }
                 }
             }
         }
-    }
 
-    footer {
-        margin-top: 100px;
-        padding: 20px;
-        background-color: rgb(227, 219, 219);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 12px;
-        img {
-          height: 60px;
-        }
-      }
+        footer {
+            margin-top: 100px;
+            padding: 20px;
+            font-size: 12px;
+            background-color: rgb(227, 219, 219);;
+
+            .csm-info{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                p{
+                    font-family: 'Poppins';
+                    color:rgb(41, 40, 40);
+                    font-size: 13px;
+                    margin-bottom: 20px;
+                }
+                img{
+                    height: 30px;
+                    padding-right: 5px;
+                    margin-bottom: 20px;
+                }
+
+                .facebook, .instagram, .phone-number, .address, .email{
+                    display: flex;
+                    align-items: center;
+                    span{
+                        margin-bottom: 20px;
+                    }
+                }
+                
+            }
+
+            .contact-info{
+                padding-right: 100px;
+            }
+            .social-media{
+                padding-left: 100px;
+            }
+            .author-info{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 50px;
+                color:#9a9b9e
+            }
+
+            span{
+                font-family: 'Poppins';
+                color:rgb(126, 119, 119);
+            }
+
+            
+
+            a{
+                font-family: 'Poppins';
+                color:#09142c;
+                text-decoration: none;
+                &:visited{
+                    color:#022268;
+                }
+                &:hover{
+                    color:#1340A2
+                }
+            }
+    
+          }
+    }
       
-}
 }

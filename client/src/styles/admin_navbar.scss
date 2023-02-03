@@ -11,33 +11,59 @@
         color: inherit;
     }
     .admin_navbar{
+        position: sticky;//+ 
+        top: 0;//+
+        z-index: 10;//+
         .container{
-            padding: 10px 0px;
+            background-color: #022268;//#A8BDEC;
+            padding: 5px 10px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            .logo {
-              img {
-                width: 160px;
-              }
+            width: 1004px; //!!!!!
+            
+            .logo{
+                img{
+                    width: 160px;
+                }
             }
-        
             .links {
+                color: white;
                 display: flex;
                 align-items: center;
                 gap: 10px;
-
+    
                 h6 {
+                    font-weight: 100;
                     font-size: 16px;
-                    font-weight: 300;
+                }
+                .personal, .users, .matches { //+
+                    &:hover{
+                        background-color:#0a2b73;
+                        padding-top: 6px;
+                        padding-bottom: 6px;
+                        transition: 0.3s;
+                    }
+                    &:active{
+                        color:#7897DA;
+                    }
                 }
 
-                span {
-                    cursor: pointer;
                 }
-
+    
+                .currentUser{
+                    background-color: #1340A2;
+                    border-radius: 8px;
+                    padding: 4px;
+                }
+    
+                .login {
+                    &:hover{
+                        color:#7897DA;
+                        cursor: pointer;
+                    }
+                }
                 .write {
-                    background-color: white;
+                    background-color: #1340A2;
                     width: 50px;
                     height: 50px;
                     border-radius: 50%;
@@ -45,29 +71,33 @@
                     align-items: center;
                     justify-content: center;
                     font-weight: 300;
-                    border: 1px solid blue;
+                    border: 1px solid #1340A2;
         
                 &:hover {
                       color: white;
-                      background-color: blue;
-                      border: 1px solid blue;
+                      background-color: #7897DA;
+                      border: 1px solid white;
                     }
+                &:active {
+                    background-color: white;
+                    color:#022268;
+                    border: 1px solid #022268;
+                }
                 }
             }
         }
     }
 
-    footer {
-        margin-top: 100px;
-        padding: 20px;
-        background-color: white;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 12px;
-        img {
-          height: 60px;
-        }
-      }
-}
+    // footer {
+    //     margin-top: 100px;
+    //     padding: 20px;
+    //     background-color: white;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: space-between;
+    //     font-size: 12px;
+    //     img {
+    //       height: 60px;
+    //     }
+    //   }
 }

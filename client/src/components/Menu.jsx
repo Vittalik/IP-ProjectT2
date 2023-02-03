@@ -8,7 +8,7 @@ const Menu = () => {
           id: 1,
           title: "Sportivii de la CSM Suceava au câştigat 10 medalii la naţionalele de juniori I şi tineret",
           desc: "Pe întregul parcurs al săptămânii trecute, sportivii secţiei de tir sportiv de la Clubul Sportiv Municipal Suceava, pregătiţi de antrenorul Ştefan Buiucliu, au fost antrenaţi în lupta pentru medalii",
-          img: "http://web.archive.org/web/20220814072716im_/http://csm-suceava.ro/media/k2/items/cache/11b8145be285a17777ee4d809bfd4d09_M.jpg",
+          img: "./images/1673713003814image1.png",
         },
         {
           id: 2,
@@ -33,7 +33,7 @@ const Menu = () => {
 
   return (
     <div className='menu'>
-        <h1>Alte posturi:</h1>
+        <h1>Alte postari:</h1> 
         {posts.map(post=>(
             <div className='post' key={post.id}>
                 <img src={`../upload/${post.img}`} alt="" />

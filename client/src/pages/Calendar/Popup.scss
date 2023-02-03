@@ -1,243 +1,363 @@
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+:root {
+  --color-text-primary: #1c2a38;
+  --color-text-secondary: #8A8F98;
+  --color-text-alert: #d72641;
+  --color-text-icon: #dbdade;
+  --color-bg-primary: #fff;
+  --color-bg-secondary: #f3f5f9;
+  --color-bg-alert: #fdeaec;
+  --color-theme-primary: #2331c7;
+}
 
-  :root {
-	--color-text-primary: #1c2a38;
-	--color-text-secondary: #8A8F98;
-	--color-text-alert: #d72641;
-	--color-text-icon: #dbdade;
-	--color-bg-primary: #fff;
-	--color-bg-secondary: #f3f5f9;
-	--color-bg-alert: #fdeaec;
-	--color-theme-primary: #2331c7;
+
+#adauga-eveniment{
+	font-family: 'Poppins';
+	color: white;
+	font-weight: 100;
+	margin-left: 400px;
+	//margin-top:30px;
+	margin-bottom: 20px;
+	padding-top: 20px;
 }
 
 button,
 input,
 select,
 textarea {
-	font: inherit;
+  font-family: 'Poppins';
+  color:rgb(0, 0, 0);
 }
 
+.input-calendar{
+	width: 200px;
+	background-color: #6680b9;//#7897DA;
+	padding: 10px;
+	border: none;
+	border-bottom: rgb(26, 22, 22) 1px solid;
+	margin: 10px;
+	margin-left:400px;
+	color:rgb(19, 22, 87);
 
-img {
+	&:focus{
+		outline: none;
+    color:rgb(19, 22, 87);
+	}
+}
+
+.add-button{
+	margin-left: 410px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	padding: 10px;
+	padding-left: 80px;
+	padding-right: 80px;
+	border-radius: 8px;
+	background-color: #022268;
+	color: white;
+	border:#022268 1px solid;
+
+	&:hover {
+		background-color: #1340A2;
+	}
+	&:active{
+		border: 1px solid #022268;
+		background-color: white;
+		color: #022268;
+	}
+
+}
+.match-input{
+	width: 100%;
 	display: block;
+    justify-content: center;
+	background-color: #6680b9;
 	
 }
 
+img {
+  display: block;
+  
+}
+
 strong {
-	font-weight: 600;
+  font-weight: 600;
 }
 
 body {
-	font-family: "Inter", sans-serif;
-	line-height: 1.5;
-	color: var(--color-text-primary);
-	background-color: var(--color-bg-secondary);
+  font-family: 'Poppins';
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
+}
+
+#date_picker_ui {
+  z-index: 10000 !important;
+  font-size: large;
+  border-radius: 8px;
+  size-adjust:inherit;
+}
+
+.react-datepicker-popper {
+  z-index: 9999 !important;
+  background-color: #022268;//#7897DA;
+  padding: 10px;
+  border-radius: 8px;
 }
 
 
 .match {
-	background-color: var(--color-bg-primary);
-	display: flex;
-	flex-direction: column;
-	min-width:600px;
-	border-radius: 10px;
-	box-shadow: 0 0 2px 0 rgba(#303030, 0.1), 0 4px 4px 0 rgba(#303030, 0.1);
-	
+  background-color: var(--color-bg-primary);
+  display: flex;
+  flex-direction: column;
+  min-width:600px;
+  border-radius: 10px;
+  box-shadow: 0 0 2px 0 rgba(#303030, 0.1), 0 4px 4px 0 rgba(#303030, 0.1);
+
+  z-Index: 9999;
+  
 }
 
 .match-header {
-	display: flex;
-	padding: 16px;
-	border-bottom: 2px solid rgba(#303030, 0.1);
+  font-family: 'Poppins';
+  display: flex;
+  padding: 16px;
+  border-bottom: 2px solid rgba(#150a67, 0.1);
+
+  z-Index: 9999;
 }
 
 .match-status {
-	background-color: var(--color-bg-alert);
-	color: var(--color-text-alert);
-	padding: 8px 12px;
-	border-radius: 6px;
-	font-weight: 600;
-	font-size: 14px;
-	display: flex;
-	align-items: center;
-	line-height: 1;
-	margin-right: auto;
-	&:before {
-		content: "";
-		display: block;
-		width: 6px;
-		height: 6px;
-		background-color: currentcolor;
-		border-radius: 50%;
-		margin-right: 8px;
-	}
-	
+  background-color: var(--color-bg-alert);
+  color: var(--color-text-alert);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  margin-right: auto;
+  &:before {
+	  content: "";
+	  display: block;
+	  width: 6px;
+	  height: 6px;
+	  background-color: currentcolor;
+	  border-radius: 50%;
+	  margin-right: 8px;
+  }
+  z-Index: 9999;
 }
 
 .match-tournament {
-	display: flex;
-	text-align: center;
-	align-items: center;
-	font-weight: 600;
-	
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-weight: 600;
+  
+  z-Index: 9999;
 }
 
 .match-actions {
-	display: flex;
-	margin-left: auto;
+  display: flex;
+  margin-left: auto;
+
+  z-Index: 9999;
 }
 
 .btn-icon {
-	border: none;
-	background-color: transparent;
-	color: var(--color-text-icon);
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  border: none;
+  background-color: transparent;
+  color: var(--color-text-icon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-Index: 9999;
 }
 
 
 .match-content {
-	display: flex;
-	position: relative;
+  display: flex;
+  position: relative;
+
+  z-Index: 9999;
 }
 
 .column {
-	padding: 32px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: calc(100%/3);
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100%/3);
+
+  z-Index: 9999;
 }
 
 
 .team {
-	display: flex;
-	flex-direction:column;
-	align-items: center;
-	
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  
+  z-Index: 9999;
 }
 
 .team-logo {
-	width: 100px;
-	height: 100px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 50%;
-	background-color: var(--color-bg-primary);
-	box-shadow: 0 4px 4px 0 rgba(#303030, 0.15),
-		0 0 0 15px var(--color-bg-secondary);
-	img {
-		width: 50px;
-	}
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-bg-primary);
+  box-shadow: 0 4px 4px 0 rgba(#303030, 0.15),
+	  0 0 0 15px var(--color-bg-secondary);
+  img {
+	  width: 50px;
+  }
+
+  z-Index: 9999;
 
 }
 
 .team-name {
-	text-align:center;
-	margin-top: 24px;
-	font-size: 20px;
-	font-weight: 600;
+  text-align:center;
+  margin-top: 24px;
+  font-size: 20px;
+  font-weight: 600;
+
+  z-Index: 9999;
 }
 
 .match-details {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  z-Index: 9999;
 }
 
 .match-date, .match-referee {
-	font-size: 14px;
-	color: var(--color-text-secondary);
-	strong {
-		color: var (--color-text-primary);
-	}
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  strong {
+	  color: var (--color-text-primary);
+  }
+
+  z-Index: 9999;
 }
 
 .match-score {
-	margin-top: 12px;
-	display: flex;
-	align-items: center;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+
+  z-Index: 9999;
 }
 
 .match-score-number {
-	font-size: 48px;
-	font-weight: 600;
-	line-height: 1;
-	&--leading {
-		color: var(--color-theme-primary);
-	}
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
+  &--leading {
+	  color: var(--color-theme-primary);
+  }
+  z-Index: 9999;
 }
 
 .match-score-divider {
-	font-size: 28px;
-	font-weight: 700;
-	line-height: 1;
-	color: var (--color-text-icon);
-	margin-left: 10px;
-	margin-right: 10px;
-	
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  color: var (--color-text-icon);
+  margin-left: 10px;
+  margin-right: 10px;
+
+  z-Index: 9999;
 }
 
 .match-time-lapsed {
-	color: #DF9443;
-	font-size: 14px;
-	font-weight: 600;
-	margin-top: 8px;
+  color: #DF9443;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+
+  z-Index: 9999;
 }
 
 .match-referee {
-	margin-top: 12px;
-	justify-content: center;
+  margin-top: 12px;
+  justify-content: center;
+
+  z-Index: 9999;
 }
 
 .match-bet-options {
-	display: flex;
-	margin-top: 8px;
-	padding-bottom: 12px;
+  display: flex;
+  margin-top: 8px;
+  padding-bottom: 12px;
+
+  z-Index: 9999;
 }
 
 
 .match-bet-option {
-	margin-left: 4px;
-	margin-right: 4px;
-	border: 1px solid var(--color-text-icon);
-	background-color: #F9F9F9;
-	border-radius: 2px;
-	color: var(--color-text-secondary);
-	font-size: 14px;
-	font-weight: 600;
-	padding: 4px 8px;
+  margin-left: 4px;
+  margin-right: 4px;
+  border: 1px solid var(--color-text-icon);
+  background-color: #F9F9F9;
+  border-radius: 2px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 8px;
+
+  z-Index: 9999;
 }
 
 .match-bet-place {
-	position: absolute;
-	bottom: -16px;
-	left: 50%;
-	transform: translateX(-50%);
-	border: none;
-	background-color: var(--color-theme-primary);
-	border-radius: 6px;
-	padding: 10px 48px;
-	color: rgba(#fff, 0.9);
-	font-size: 14px;
-	box-shadow: 0 4px 8px 0 rgba(#303030, 0.25);
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  background-color: var(--color-theme-primary);
+  border-radius: 6px;
+  padding: 10px 48px;
+  color: rgba(#fff, 0.9);
+  font-size: 14px;
+  box-shadow: 0 4px 8px 0 rgba(#303030, 0.25);
+
+  z-Index: 9999;
 }
 
 
 .container_match {
-	position: relative;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-Index: 9999;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-Index: 3 !important;
+}
+
+.calendar-message{
+	font-family: 'Poppins';
+	font-size: 20px;
+	margin-left: 420px;
+	margin-top: 40px;
+
+}
+.rbc-calendar {
+  z-index: 1;
+  background-color: #ccd1dd;
 }

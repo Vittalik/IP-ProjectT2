@@ -3,6 +3,7 @@ $USVComplementary: #d8d0ab;
 
 .app{
     background-image: url('../images/bg.png');
+    background-attachment: fixed; //+
     display: flex;
     justify-content: center;
     .container{

@@ -35,7 +35,8 @@ const AddNewUser = () => {
   
     return (
       <div className='auth'>
-        <h1>ADD NEW USER</h1>
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
+        <h1>Add New User</h1>
         <form>
           <input required type="text" placeholder='username' name='username' onChange={handleChange}/>
           <input required type="email" placeholder='email' name='email' onChange={handleChange}/>

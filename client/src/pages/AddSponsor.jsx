@@ -34,7 +34,8 @@ const AddNewSponsor = () => {
   
     return (
       <div className='auth'>
-        <h1>ADD NEW SPONSOR</h1>
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
+        <h1>Add New Sponsor</h1>
         <form>
           <input required type="text" placeholder='name_sponsor' name='name_sponsor' onChange={handleChange}/>
           <input required type="text" placeholder='link' name='link' onChange={handleChange}/>
